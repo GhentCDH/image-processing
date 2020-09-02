@@ -71,7 +71,7 @@ class Converter(object):
         if not os.access(output_image_filepath, os.W_OK):
             raise IOError("Could not write to output path {0}".format(output_image_filepath))
 
-        command_options = [self.exiftool_path, '-tagsFromFile', input_image_filepath, '-overwrite_original']
+        command_options = [self.exiftool_path, '-tagsFromFile', input_image_filepath, '-overwrite_original', '-q']
         if write_only_xmp:
             command_options += ['-xmp:all<all']
         command_options += [output_image_filepath]
